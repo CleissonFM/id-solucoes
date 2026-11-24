@@ -140,3 +140,13 @@ Este pacote tem **todo** o código do sistema; não depende do Claude para funci
 - **Versão sem internet/sem login** (guarda dados só no navegador): `fonte/sistema.html`, aberto direto num navegador.
 
 Bibliotecas externas usadas: `@supabase/supabase-js` 2.118.0 (carregada do jsDelivr) e, na função da IA, `@anthropic-ai/sdk` 1.5.0. Fontes Inter e JetBrains Mono (Google Fonts). Sem outras dependências.
+
+## 10. Versão modelo (para outras lojas)
+
+A pasta `modelo/` e o script `ferramentas/gerar_modelo.py` geram uma **versão genérica** do sistema, sem nenhum dado da ID Soluções, para outra loja instalar com o próprio Supabase:
+
+```bash
+python3 ferramentas/gerar_modelo.py ../sistema-assistencia-modelo
+```
+
+O que muda no modelo: dados da empresa em branco, assistente "Bem-vindo" no primeiro acesso, equipe começando só com o administrador, símbolo com as iniciais da loja, endereço/chave do banco num `config.js` separado, SQL pedindo usuário/nome/senha do administrador, guia `INSTALAR.md` para leigos e teste automático de instalação (`ferramentas/teste_instalacao.js`). Toda melhoria feita aqui pode ser repassada ao modelo rodando o script de novo.
