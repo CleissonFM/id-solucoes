@@ -173,7 +173,7 @@ telas = telas.replace("| **Entrar** | todos |", "| **Bem-vindo (primeiro acesso)
 (OUT / 'docs/telas.md').write_text(telas, encoding='utf-8')
 (OUT / '.gitignore').write_text('.DS_Store\n*.tmp\n', encoding='utf-8')
 for f in OUT.rglob('*'):
-    if f.is_file() and f.suffix in ('.md', '.js', '.py', '.sql', '.ts', '.html') and f.name != 'teste_instalacao.js':  # o teste procura esses nomes de propósito
+    if f.is_file() and f.suffix in ('.md', '.js', '.py', '.sql', '.ts', '.html') and f.name != 'teste_instalacao.js' and 'versao-local' not in f.parts:  # o teste procura esses nomes de propósito; a versão local tem o crédito de propósito
         t = f.read_text(encoding='utf-8')
         for x in ['Cleisson', 'cleisson', 'ID Soluções', 'idsolucoes', 'Kaique', 'Luciana', 'qmzfzolahqjwaixbirom', '57.631', 'Holandeses']:
             if x in t: sys.exit(f'{f} ainda contém {x!r}')

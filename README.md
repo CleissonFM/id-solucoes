@@ -150,3 +150,11 @@ python3 ferramentas/gerar_modelo.py ../sistema-assistencia-modelo
 ```
 
 O que muda no modelo: dados da empresa em branco, assistente "Bem-vindo" no primeiro acesso, equipe começando só com o administrador, símbolo com as iniciais da loja, endereço/chave do banco num `config.js` separado, SQL pedindo usuário/nome/senha do administrador, guia `INSTALAR.md` para leigos e teste automático de instalação (`ferramentas/teste_instalacao.js`). Toda melhoria feita aqui pode ser repassada ao modelo rodando o script de novo.
+
+**Versão local (grátis, sem banco):** depois do modelo, rode também
+
+```bash
+python3 ferramentas/gerar_local.py ../sistema-assistencia-modelo
+```
+
+Ela gera `versao-local/` e `versao-local.zip` no modelo: o sistema abre pelo link, a pessoa só preenche o nome dela e da loja e já usa. Não tem login nem Supabase. Os dados ficam no próprio aparelho (IndexedDB do navegador), funciona sem internet, pode ser instalado como aplicativo e tem cópia de segurança (baixar/importar) em Configurações. O assistente de IA fica escondido.
